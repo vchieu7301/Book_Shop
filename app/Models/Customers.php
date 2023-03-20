@@ -6,7 +6,7 @@ use Database\Factories\CustomerFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class customers extends Model
+class Customers extends Model
 {
     use HasFactory;
       /**
