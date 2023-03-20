@@ -16,14 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
- Route::middleware(['cors'])->group(function () {
-   Route::post('/login', [PassportController::class, 'login']);
-   Route::post('/register', [PassportController::class, 'register']);
-   Route::post('/unauthenticated', [PassportController::class, 'unauthenticated']);
-   Route::middleware(['cors','auth:api'])->group(function () {
-      Route::resource('/users', UserController::class)->only(['index','show','store','update','destroy']);
-      Route::resource('/customers', CustomerController::class)->only(['index','show','store','update','destroy']);
-      Route::post('/logout', [AuthController::class, 'logout']);
-      
-   });
- });
+Route::post('/login', [PassportController::class, 'login']);
+Route::post('/register', [PassportController::class, 'register']);
+Route::post('/unauthenticated', [PassportController::class, 'unauthenticated']);
+Route::middleware(['cors','auth:api'])->group(function () {
+  Route::resource('/users', UserController::class)->only(['index','show','store','update','destroy']);
+  Route::resource('/customers', CustomerController::class)->only(['index','show','store','update','destroy']);
+  Route::post('/logout', [PassportController::class, 'logout']);
+});

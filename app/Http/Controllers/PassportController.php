@@ -85,7 +85,7 @@ class PassportController extends Controller
 
     public function unauthenticated ()
     {
-        return response()->json(['error' => true,'code' => Response::HTTP_UNAUTHORIZED]);
+        return response()->json(['error' => true,'code' => Response::HTTP_UNAUTHORIZED, 'message' => 'Unauthenticated']);
     }
 
     private function getAccessToken($client, $email, $password)
