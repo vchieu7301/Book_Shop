@@ -20,6 +20,7 @@ Route::post('/login', [PassportController::class, 'login']);
 Route::post('/register', [PassportController::class, 'register']);
 Route::post('/unauthenticated', [PassportController::class, 'unauthenticated']);
 Route::middleware(['cors','auth:api'])->group(function () {
+  Route::post('user/updatePassword', [UserController::class, 'updatePassword'])->name('users.updatePassword');
   Route::resource('/users', UserController::class)->only(['index','show','store','update','destroy']);
   Route::resource('/customers', CustomerController::class)->only(['index','show','store','update','destroy']);
   Route::post('/logout', [PassportController::class, 'logout']);
